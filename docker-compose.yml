@@ -1,0 +1,14 @@
+services:
+  tidyverse:
+    platform: linux/amd64  # Need to include this when building on M1 macOS
+
+    build:
+      context: "."
+      dockerfile: "Dockerfile"
+
+    ports:
+      - "2222:22"  # localhost:2222 on the computer maps to localhost:22 in the container
+
+    volumes:
+      - ./project:/home/rstudio/project
+      - ~/.ssh/id_rsa.pub:/home/rstudio/.ssh/authorized_keys:ro
