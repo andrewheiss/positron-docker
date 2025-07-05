@@ -1,0 +1,39 @@
+---
+title: "Highly rigorous and reproducible analysis"
+format:
+  html: default
+  typst: default
+---
+
+::: {.callout-note}
+### Version details
+
+I'm using `{r} R.version.string` on `{r} osVersion`.
+:::
+
+See this plot? It's convincing.
+
+```{r}
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+plot(1:10)
+```
+
+Not convincing enough because it's using base graphics? Here it is ggplot:
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-width: 5
+#| fig-height: 3
+#| fig-align: center
+
+library(tidyverse)
+
+tibble(y = 1:10) |> 
+  ggplot(aes(x = 1:10, y = y)) +
+  geom_point()
+```
+
+Science.

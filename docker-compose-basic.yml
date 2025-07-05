@@ -1,0 +1,10 @@
+services:
+  rstudio:
+    platform: linux/amd64  # Need to include this when building on Silicon macOS
+    image: rocker/tidyverse:4.5.0
+    ports:
+      - "8787:8787"  # Make localhost:8787 in the container accessible as localhost:8787 on the computer
+    environment:
+      - DISABLE_AUTH=true  # Allow password-less login to RStudio server instance
+    volumes:
+      - ./project:/home/rstudio/project  # Mount the local project folder into the container

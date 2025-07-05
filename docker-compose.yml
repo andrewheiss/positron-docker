@@ -3,12 +3,18 @@ services:
     platform: linux/amd64  # Need to include this when building on M1 macOS
 
     build:
+      # Build the Dockerfile
       context: "."
       dockerfile: "Dockerfile"
 
     ports:
+      - "8787:8787"
       - "2222:22"  # localhost:2222 on the computer maps to localhost:22 in the container
+
+    environment:
+      - DISABLE_AUTH=true  # Allow password-less login to RStudio server instance
 
     volumes:
       - ./project:/home/rstudio/project
-      - ~/.ssh/id_rsa.pub:/home/rstudio/.ssh/authorized_keys:ro
+      # Mount the local public key into the container to SSH into it passwordlessly
+      - ~/.ssh/id_rsa.pub:/home/rstudio/.ssh/authorized_keys:ro 

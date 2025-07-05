@@ -1,0 +1,9 @@
+# R stuff
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+*.html
+*.pdf
+*_files/
