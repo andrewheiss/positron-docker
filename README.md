@@ -1,3 +1,5 @@
+[**See this blog post for more details about why this approach is helpful.**](https://www.andrewheiss.com/blog/2025/07/05/positron-ssh-docker/)
+
 1. Build Docker Compose services:
 
    ```sh
